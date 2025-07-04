@@ -4,7 +4,7 @@ import ProductDetails from "./ProductDetails";
 function Home() {
 
   return (
-    <div>
+    <div className="flex w-full">
       <Filteration/>
       <ProductDetails/>
     </div>

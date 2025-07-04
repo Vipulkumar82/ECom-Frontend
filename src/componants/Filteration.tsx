@@ -10,19 +10,19 @@ const Filteration = () => {
           <h3 className="text-xl font-bold text-white mb-3">Category</h3>
           <div className="space-y-2">
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">Electronics</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">Books</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">Grocery</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">Fashion</span>
             </label>
           </div>
@@ -32,19 +32,19 @@ const Filteration = () => {
           <h3 className="text-xl font-bold text-white mb-3">Price Range</h3>
           <div className="space-y-2">
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">₹0 - ₹500</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">₹500 - ₹1,000</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">₹1,000 - ₹10,000</span>
             </label>
             <label className="flex items-center space-x-2 cursor-pointer hover:bg-[#7090d1] p-2 rounded-md transition-colors">
-              <input type="checkbox" className="w-4 h-4 accent-blue-600" />
+              <input type="checkbox" className="w-4 h-4 accent-blue-600 cursor-pointer" />
               <span className="font-semibold text-white">₹10,000 - ₹50,000</span>
             </label>
           </div>

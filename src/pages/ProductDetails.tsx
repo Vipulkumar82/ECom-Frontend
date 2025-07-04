@@ -1,7 +1,13 @@
+import ProductCard from "../componants/ProductCard";
+
 const ProductDetails = () => {
   return (
-    <div className="text-green-700 flex items-center justify-center text-5xl font-bold w-4/6 min-h-[92vh]">
-      ProductDetails
+    <div className="w-full bg-blue-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6">
+      <ProductCard/>
+      <ProductCard/>
+      <ProductCard/>
+      <ProductCard/>
+      <ProductCard/>
     </div>
   );
 };
