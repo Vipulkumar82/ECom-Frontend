@@ -1,12 +1,12 @@
 import Filteration from "../componants/Filteration";
-import ProductDetails from "./ProductDetails";
+import ProductPage from "../componants/ProductPage";
 
 function Home() {
 
   return (
     <div className="flex w-full">
       <Filteration/>
-      <ProductDetails/>
+      <ProductPage/>
     </div>
   );
 }

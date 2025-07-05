@@ -1,20 +1,46 @@
-const ProductCard = () => {
-  return (
-    <div className="w-74 bg-green-600 my-4">
-      <div className=" bg-[#8AAAE5] w-full h-80 flex flex-col">
-      <img className="h-48 w-full p-4 object-center"  src="https://rukminim2.flixcart.com/image/312/312/xif0q/computer/f/w/u/-original-imahbwnhkgr5p46r.jpeg?q=70" alt="Product img"></img>
-      <div className="ml-4 ">
-          <h3 className="text-xl font-semibold tracking-wide">Product Name</h3>
-          <p>Description</p>
-          <h2 className=" font-bold tracking-wide">Rs: 50,0000</h2>
-      </div>
-      <div className="mt-2 flex justify-around">
-        <button className="bg-white py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">Cart</button>
-        <button className="bg-white py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">Details</button>
-      </div>
-    </div>
-    </div>
-  )
-}
+type ProductCardProps = {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+  price: number;
+};
 
-export default ProductCard
+const ProductCard = ({
+  id,
+  imageUrl,
+  title,
+  description,
+  price,
+}: ProductCardProps) => {
+  return (
+    <div className="w-74 my-4">
+      <div className=" bg-[#8AAAE5] w-full rounded-2xl flex flex-col pb-2">
+        <div className="h-64 w-full overflow-hidden p-2">
+          <img
+            src={imageUrl}
+            alt={title}
+            className="h-full w-full object-cover rounded-2xl"
+          />
+        </div>
+        <div className="ml-4 ">
+          <h3 className="text-xl font-semibold tracking-wide">Title:{title}</h3>
+          <p>Description:{description.substring(0, 50)}...</p>
+          <h2 className=" font-bold tracking-wide">
+            Rs: {price.toLocaleString()}
+          </h2>
+        </div>
+        <div className="mt-2 flex justify-around">
+          <button className="bg-[#4681f4] py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">
+            Cart
+          </button>
+          <button className="bg-white py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;

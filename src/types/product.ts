@@ -19,7 +19,7 @@ export interface Meta {
   qrCode: string;
 }
 
-export interface Product {
+export interface SingleProduct {
   id: number;
   title: string;
   description: string;
@@ -41,10 +41,10 @@ export interface Product {
   minimumOrderQuantity: number;
   meta: Meta;
   thumbnail: string;
-  images: string[];
+  imageUrl: string;
 }
 export interface ProductResponse {
-  products: Product[];
+  products: SingleProduct[];
   total: number;
   skip: number;
   limit: number;
