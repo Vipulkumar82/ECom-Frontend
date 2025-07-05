@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 type ProductCardProps = {
   id: number;
   imageUrl: string;
@@ -13,28 +15,51 @@ const ProductCard = ({
   description,
   price,
 }: ProductCardProps) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   return (
-    <div className="w-74 my-4">
-      <div className=" bg-[#8AAAE5] w-full rounded-2xl flex flex-col pb-2">
-        <div className="h-64 w-full overflow-hidden p-2">
-          <img
-            src={imageUrl}
-            alt={title}
-            className="h-full w-full object-cover rounded-2xl"
-          />
+    <div className="relative w-74 my-4">
+      <div className="bg-[#8AAAE5] w-full rounded-2xl flex flex-col pb-2">
+        <div className="relative h-64 w-full overflow-hidden p-2">
+          {loading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100/60">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+          )}
+          {!error ? (
+            <img
+              src={imageUrl}
+              alt={title}
+              className={`h-full w-full object-cover rounded-2xl transition-opacity duration-300 ${
+                loading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={() => setLoading(false)}
+              onError={() => {
+                setError(true);
+                setLoading(false);
+              }}
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center text-red-600">
+              Failed to load image
+            </div>
+          )}
         </div>
-        <div className="ml-4 ">
-          <h3 className="text-xl font-semibold tracking-wide">Title:{title}</h3>
-          <p>Description:{description.substring(0, 50)}...</p>
-          <h2 className=" font-bold tracking-wide">
-            Rs: {price.toLocaleString()}
+
+        <div className="ml-4">
+          <h3 className="text-xl font-semibold tracking-wide">{title}</h3>
+          <p>{description.substring(0, 50)}...</p>
+          <h2 className="font-bold tracking-wide">
+            Rs {price.toLocaleString()}
           </h2>
         </div>
+
         <div className="mt-2 flex justify-around">
-          <button className="bg-[#4681f4] py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">
+          <button className="bg-[#4681f4] py-1 px-10 rounded-2xl hover:bg-[#7090d1] transition-colors">
             Cart
           </button>
-          <button className="bg-white py-1 px-10 rounded-2xl cursor-pointer hover:bg-[#7090d1] p-2 transition-colors">
+          <button className="bg-white py-1 px-10 rounded-2xl hover:bg-[#7090d1] transition-colors">
             Details
           </button>
         </div>

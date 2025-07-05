@@ -41,7 +41,7 @@ export interface SingleProduct {
   minimumOrderQuantity: number;
   meta: Meta;
   thumbnail: string;
-  imageUrl: string;
+  images: string[];
 }
 export interface ProductResponse {
   products: SingleProduct[];
