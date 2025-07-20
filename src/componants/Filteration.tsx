@@ -11,10 +11,8 @@ export interface Category {
 
 const Filteration = () => {
   const [category, setCategory] = useState<Category[]>([]);
-  const [checkedCategory,setCheckedCategory] = useState<string>("")
   const previousFilteredProducts = useSelector((state:any)=>state.products) 
   const dispatch = useDispatch()
-  console.log(checkedCategory)
 
   const fetchCategories = async () => {
     try {

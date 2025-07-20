@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import { useAuth } from "../Auth";
 const Navbar = () => {
   const { token } = useAuth();
-  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.reload();

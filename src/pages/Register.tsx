@@ -32,11 +32,9 @@ function Register() {
         credentials:'include'
       })
       const res = await resp.json();
-      console.log(res)
       if(res.success){
         navigate(`/verify-user/${res.activationToken}`);
       }
-      console.log(resp)
     } catch (error) {
       console.log(error)
     }

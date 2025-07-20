@@ -17,9 +17,7 @@ const ProductPage = () => {
         }
       );
       const jsonProducts = await productResponse.json();
-      console.log("first");
       dispatch(setProducts({ products: jsonProducts.products }));
-      console.log("sec");
     } catch (error: any) {
       console.log(error.message || "Failed to fetch");
       toast.error(error.message || "Failed to fetch");

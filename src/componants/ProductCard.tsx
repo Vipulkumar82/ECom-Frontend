@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 type ProductCardProps = {
   id: number;
@@ -15,11 +18,13 @@ const ProductCard = ({
   description,
   price,
 }: ProductCardProps) => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   return (
     <div className="relative w-74 my-4">
+      <Toaster position="top-right" />
       <div className="bg-[#8AAAE5] w-full rounded-2xl flex flex-col pb-2">
         <div className="relative h-64 w-full overflow-hidden p-2">
           {loading && (
@@ -56,10 +61,49 @@ const ProductCard = ({
         </div>
 
         <div className="mt-2 flex justify-around">
-          <button className="bg-[#4681f4] py-1 px-10 rounded-2xl hover:bg-[#7090d1] transition-colors">
-            Cart
+          <button 
+            onClick={() => {
+              try {
+                dispatch(addToCart({ 
+                  id, 
+                  title, 
+                  description, 
+                  price,
+                  category: "Default",
+                  discountPercentage: 0,
+                  rating: 0,
+                  stock: 100,
+                  tags: [],
+                  brand: "",
+                  sku: "",
+                  weight: 0,
+                  dimensions: { width: 0, height: 0, depth: 0 },
+                  warrantyInformation: "",
+                  shippingInformation: "",
+                  availabilityStatus: "In Stock",
+                  reviews: [],
+                  returnPolicy: "",
+                  minimumOrderQuantity: 1,
+                  meta: {
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
+                    barcode: "",
+                    qrCode: ""
+                  },
+                  thumbnail: imageUrl,
+                  images: [imageUrl] // Make sure image is included in both thumbnail and images array
+                }));
+                toast.success('Added to cart! 🛍️');
+              } catch (error) {
+                toast.error('Failed to add to cart ❌');
+                console.error('Error adding to cart:', error);
+              }
+            }}
+            className="bg-[#4681f4] cursor-pointer py-1 px-10 rounded-2xl hover:bg-black hover:text-white transition-colors"
+          >
+            Add to Cart
           </button>
-          <button className="bg-white py-1 px-10 rounded-2xl hover:bg-[#7090d1] transition-colors">
+          <button className="bg-white cursor-pointer py-1 px-10 rounded-2xl hover:bg-black hover:text-white transition-colors">
             Details
           </button>
         </div>
