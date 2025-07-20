@@ -91,7 +91,7 @@ const ProductCard = ({
                     qrCode: ""
                   },
                   thumbnail: imageUrl,
-                  images: [imageUrl] // Make sure image is included in both thumbnail and images array
+                  images: [imageUrl] 
                 }));
                 toast.success('Added to cart! 🛍️');
               } catch (error) {
